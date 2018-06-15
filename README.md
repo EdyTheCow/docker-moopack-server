@@ -1,8 +1,8 @@
-# docker-mc-base
+# Moopack Server
 
 ## Usage
 
-### Command
+### Commands
 
 ## Minecraft Environment Variables
 | Variable         | Description                               | Default value |
