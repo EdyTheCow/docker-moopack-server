@@ -10,6 +10,8 @@ RUN apk add -U \
           curl iputils wget \
           mysql-client \
           vim \
+		  p7zip \
+		  p7zip-full \ 
           python python-dev py2-pip && \
         rm -rf /var/cache/apk/*
 
@@ -19,15 +21,19 @@ RUN addgroup -g 1000 mc \
 WORKDIR /home/mc/server/
 COPY common .
 
+ADD https://dl.gmodhq.com/mc/moopack_mods.zip . \
+	&& unzip moopack_mods.zip \
+	&& mv moopack_mods/* . \
+	&& rm -r moopack_mods.zip moopack_mods
+
 USER root
 RUN chown -R mc:mc /home/mc \
     && chmod -R 774 /home/mc
 USER mc
 
-ENV MC_MAX_PLAYERS="100" \
-    MC_PORT="25565" \
-    MC_VIEW_DISTANCE="3" \
-    MC_MIN_RAM="512M" \
-    MC_MAX_RAM="1G"
+ENV DOCKER_MAX_PLAYERS="100" \
+    DOCKER_PORT="25565" \
+    DOCKER_VIEW_DISTANCE="3" \
+    DOCKER_MAX_RAM="3G"
 
 CMD ["bash", "start.sh"]

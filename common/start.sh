@@ -1,5 +1,11 @@
 #!/bin/sh
 
+# Docker variables
+sed -i s/DOCKER_MAX_PLAYERS/$DOCKER_MAX_PLAYERS/g /home/mc/server/server.properties
+sed -i s/DOCKER_PORT/$DOCKER_PORT/g /home/mc/server/server.properties
+sed -i s/DOCKER_VIEW_DISTANCE/$DOCKER_VIEW_DISTANCE/g /home/mc/server/server.properties
+sed -i s/DOCKER_MAX_RAM/$DOCKER_MAX_RAM/g /home/mc/server/settings.sh
+
 # Fix work directory
 # Some GUIs set wrong working directory which breaks relative paths
 cd -- "$(dirname "$0")"
