@@ -10,8 +10,7 @@ RUN apk add -U \
           curl iputils wget \
           mysql-client \
           vim \
-		  p7zip \
-		  p7zip-full \ 
+		  unzip \
           python python-dev py2-pip && \
         rm -rf /var/cache/apk/*
 
