@@ -10,7 +10,7 @@ RUN apk add -U \
           curl iputils wget \
           mysql-client \
           vim \
-		  unzip \
+          unzip \
           python python-dev py2-pip && \
         rm -rf /var/cache/apk/*
 
@@ -20,7 +20,7 @@ RUN addgroup -g 1000 mc \
 WORKDIR /home/mc/server/
 COPY common .
 
-ADD https://dl.gmodhq.com/mc/moopack_mods.zip . \
+RUN wget "https://dl.gmodhq.com/mc/moopack_mods.zip" . \
 	&& unzip moopack_mods.zip \
 	&& mv moopack_mods/* . \
 	&& rm -r moopack_mods.zip moopack_mods
