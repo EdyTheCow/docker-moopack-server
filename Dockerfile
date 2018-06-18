@@ -34,5 +34,7 @@ ENV DOCKER_MAX_PLAYERS="100" \
     DOCKER_PORT="25565" \
     DOCKER_VIEW_DISTANCE="3" \
     DOCKER_MAX_RAM="3G"
+	
+VOLUME ["/home/mc/server"]
 
 CMD ["bash", "start.sh"]
